@@ -56,7 +56,7 @@ To get a local copy up and running follow these simple steps.
 ### Download dataset
 To download the dataset, run **getFlickr.sh**.
   ```sh
-  sh data/getFlickr.sh
+  !sh data/getFlickr.sh
   ```
 It will be downloaded inside to **data** folder.
 
@@ -82,17 +82,17 @@ To install the required packages. In a terminal, type:
 ### Convert the annotations
 Now that we have our dataset, we need to convert the annotations into the format expected by YOLOv7. YOLOv7 expects data to be organized in a specific way, otherwise it is unable to parse through the directories.
   ```sh
-  python src/convert_annotations.py --dataset flickr27
+  !python src/convert_annotations.py --dataset flickr27
   ```
 To see if the conversion is correct, run.
   ```sh
-  python src/convert_annotations.py --dataset flickr27 --plot
+  !python src/convert_annotations.py --dataset flickr27 --plot
   ```
 
 ### Partition the Dataset
 Next, we need to partition the dataset into train, validation, and test sets. These will contain 80%, 10%, and 10% of the data, respectively.
   ```sh
-  python src/prepare_data.py --dataset flickr27
+  !python src/prepare_data.py --dataset flickr27
   ```
 
 ### Training
@@ -110,7 +110,7 @@ If you are having fitting the model into the memory:
 
 To start the training:
   ```sh
-  python src/yolov7/train.py --img-size 640 --cfg src/cfg/training/yolov7.yaml --hyp data/hyp.scratch.yaml --batch 2 --epoch 300 --data data/logo_data_flickr.yaml --weights src/yolov7_training.pt --workers 2 --name yolo_logo_det --device 0
+  !python src/yolov7/train.py --img-size 640 --cfg src/cfg/training/yolov7.yaml --hyp data/hyp.scratch.yaml --batch 2 --epoch 300 --data data/logo_data_flickr.yaml --weights src/yolov7_training.pt --workers 2 --name yolo_logo_det --device 0
   ```
 
 You can also train the model on Google Colab.
@@ -121,7 +121,7 @@ You can also train the model on Google Colab.
 ### Inference
 To test the training model:
   ```sh
-  python src/yolov7/detect.py --source data/Sample/test --weights runs/train/yolo_logo_det/weights/best.pt --conf 0.25 --name yolo_logo_det
+  !python src/yolov7/detect.py --source data/Sample/test --weights runs/train/yolo_logo_det/weights/best.pt --conf 0.25 --name yolo_logo_det
   ```
 <p align="right">(<a href="#readme-top">Back to Top</a>)</p>
 
