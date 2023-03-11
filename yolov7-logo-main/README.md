@@ -56,7 +56,7 @@ To get a local copy up and running follow these simple steps.
 ### Download dataset
 To download the dataset, run **getFlickr.sh**.
   ```sh
-  sh getFlickr.sh
+  sh data/getFlickr.sh
   ```
 It will be downloaded inside to **data** folder.
 
